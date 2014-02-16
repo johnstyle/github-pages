@@ -4,17 +4,25 @@ use sJo\View\Helper;
 
 self::header();
 
-Helper\Panel::create(array(
-    'col' => 4,
-    'container' => array(
-        'tagname' => 'a',
-        'attr' => array(
-            'href' => './johnstyle/webremote/'
-        )
-    ),
-    'title' => 'WebRemote',
-    'type' => 'primary',
-    'elements' => 'Mobile remote control website'
-))->display();
+$repoList = Model\Repository::getList();
+
+$panels = array();
+
+foreach($repoList as $repository=>$info) {
+    $panels = array(
+        'col' => 4,
+        'container' => array(
+            'tagname' => 'a',
+            'attr' => array(
+                'href' => './repository/' . $repository
+            )
+        ),
+        'title' => $info->name,
+        'type' => 'primary',
+        'elements' => $info->description . '<br />' . \sJo\Libraries\I18n::__('Version: %s', $info->version)
+    );
+    Helper\Panel::create($panels)->display();
+}
+
 
 self::footer();

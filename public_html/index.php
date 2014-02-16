@@ -12,5 +12,10 @@ include ROOT . '/vendor/autoload.php';
 
 /** Load Framework */
 $Loader = new \sJo\Core\Loader();
+
+Model\Repository::init();
+
 $Loader->init();
 $Loader->display();
+
+
