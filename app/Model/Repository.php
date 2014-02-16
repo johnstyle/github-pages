@@ -15,7 +15,7 @@ class Repository
 
             list($username, $reponame) = explode('/', $repository);
 
-            $repopath = Path::create(ROOT . '/public_html/repository/' . $username);
+            $repopath = Path::create(ROOT . '/public_html/repositories/' . $username);
 
             if (!is_dir($repopath . '/' . $reponame)) {
                 exec(
