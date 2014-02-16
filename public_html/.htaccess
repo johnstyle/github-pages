@@ -1,0 +1,10 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+ErrorDocument 404 /index.php?controller=ErrorDocument\http404
+
+RewriteRule ^project/(.*)?$  repositories/$1 [QSA,L]
+
+RewriteRule ^([[:alpha:]]+(/[[:alpha:]]+)?)/?$  /index.php?controller=$1 [QSA,L]
+RewriteRule ^([[:alpha:]]+(/[[:alpha:]]+)?)::([a-z]+)/?$  /index.php?controller=$1&method=$3 [QSA,L]
+RewriteRule ^json/([[:alpha:]]+(/[[:alpha:]]+)?)::([a-z]+)/?$  /index.php?controller=$1&method=$3&content_type=json [QSA,L]

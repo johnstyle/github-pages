@@ -1,0 +1,6 @@
+{
+    "name": "johnstyle/github-pages",
+    "require": {
+        "johnstyle/sjo": "dev-master"
+    }
+}
