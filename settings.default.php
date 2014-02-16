@@ -10,6 +10,9 @@ define('WEBSITE_URL', '');
 define('GITHUB_USER', '');
 
 /** Your GitHub Repositories */
-$repos = array(
-    'user/repository' => 'branch'
+$repositories = array(
+    'user/repository' => array(
+        'version' => 'x.x.x',
+        'public_html' => 'public_html'
+    )
 );
