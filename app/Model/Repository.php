@@ -15,27 +15,24 @@ class Repository
 
             list($username, $reponame) = explode('/', $repository);
 
-            $publicpath = Path::create(ROOT . '/public_html/repository/' . $username);
-            $privatepath = Path::create(ROOT . '/repositories/' . $username);
+            $repopath = Path::create(ROOT . '/public_html/repository/' . $username);
 
-            if (!is_dir($privatepath . '/' . $reponame)) {
+            if (!is_dir($repopath . '/' . $reponame)) {
                 exec(
-                      'cd ' . $privatepath
+                      'cd ' . $repopath
                     . ' && git clone https://github.com/' . $repository . '.git'
                     . ' && cd ' . $reponame
                     . ' && git checkout v' . $options['version']
-                    . ' && cd ' . $publicpath
-                    . ' && ln -s ' . $privatepath . '/' . $reponame . '/' . $options['public_html'] . ' ' . $reponame
                 );
-                if(file_exists($privatepath . '/' . $reponame . '/' . $options['public_html'] . '/bower.json')) {
+                if(file_exists($repopath . '/' . $reponame . '/' . $options['public_html'] . '/bower.json')) {
                     exec(
-                          'cd ' . $privatepath . '/' . $reponame . '/' . $options['public_html']
+                          'cd ' . $repopath . '/' . $reponame . '/' . $options['public_html']
                         . ' && bower install'
                     );
                 }
-                if(file_exists($privatepath . '/' . $reponame . '/composer.json')) {
+                if(file_exists($repopath . '/' . $reponame . '/composer.json')) {
                     exec(
-                        'cd ' . $privatepath . '/' . $reponame
+                        'cd ' . $repopath . '/' . $reponame
                         . ' && composer install'
                     );
                 }
