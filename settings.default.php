@@ -9,6 +9,9 @@ define('WEBSITE_URL', '');
 /** Your GitHub Username */
 define('GITHUB_USER', '');
 
+/** Google analytics */
+define('GOOGLE_ANALYTICS', '');
+
 /** Your GitHub Repositories */
 $repositories = array(
     'user/repository' => array(
