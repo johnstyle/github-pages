@@ -14,7 +14,7 @@ foreach($repoList as $repository=>$info) {
         'container' => array(
             'tagname' => 'a',
             'attr' => array(
-                'href' => './repository/' . $repository
+                'href' => './repository/' . $repository . '/'
             )
         ),
         'title' => $info->name,
