@@ -4,4 +4,6 @@ RewriteEngine on
 ErrorDocument 404 /index.php?controller=ErrorDocument\http404
 
 RewriteRule ^repository(/[^/]+)?/?$  / [R]
+RewriteRule ^repository/(johnstyle)/(google-authenticator)/?(.*)$  /repositories/$1/$2/example/$3 [QSA,L]
 RewriteRule ^repository/([^/]+)/([^/]+)/?(.*)$  /repositories/$1/$2/public_html/$3 [QSA,L]
+
